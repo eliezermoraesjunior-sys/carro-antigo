@@ -54,6 +54,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
 
         .nav-links a:hover {
@@ -67,7 +68,7 @@
             justify-content: center;
             text-align: center;
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><path fill="%238b4513" d="M0 300c200-50 400-50 600 0s400 50 600 0v300H0z"/></svg>');
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><path fill="%238b4513" d="M0 300c200 0 400 50 600 0v300H0z"/></svg>');
             background-size: cover;
             background-position: center;
         }
@@ -143,43 +144,53 @@
         .car-icon {
             width: 100%;
             height: 200px;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #d4af37, #b8941f);
+            margin-bottom: 1.5rem;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
+            overflow: hidden;
         }
 
         .car-card h3 {
+            font-size: 1.8rem;
             color: #d4af37;
-            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
         .car-card p {
             margin-bottom: 1rem;
+            opacity: 0.9;
         }
 
-        .car-year {
-            background: #d4af37;
-            color: #2c1810;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: bold;
-            display: inline-block;
+        .car-specs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        .about {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 3rem 0;
+        .spec {
             text-align: center;
         }
 
-        .features {
+        .spec-value {
+            font-weight: bold;
+            color: #d4af37;
+            font-size: 1.1rem;
+        }
+
+        .spec-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .about-section {
+            background: rgba(0, 0, 0, 0.3);
+            margin: 3rem 0;
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
@@ -189,59 +200,65 @@
         .feature {
             text-align: center;
             padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: #d4af37;
-            border-radius: 50%;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            text-align: center;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f4f1e8;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
         .footer {
             background: rgba(0, 0, 0, 0.8);
-            padding: 3rem 2rem;
             text-align: center;
-            margin-top: 5rem;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #2c1810 0%, #8b4513 100%);
-            padding: 3rem;
-            border-radius: 20px;
-            max-width: 600px;
-            margin: 2rem;
-            position: relative;
-            border: 2px solid #d4af37;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            color: #d4af37;
-            font-size: 2rem;
-            cursor: pointer;
+            padding: 2rem;
+            margin-top: 3rem;
         }
 
         @media (max-width: 768px) {
@@ -249,8 +266,21 @@
                 font-size: 2.5rem;
             }
             
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
             .nav-links {
-                display: none;
+                gap: 1rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
             }
             
             .cars-grid {
@@ -262,204 +292,748 @@
 <body>
     <header class="header">
         <nav class="nav">
-            <div class="logo">🚗 Clássicos Vintage</div>
+            <div class="logo">🏎️ Clássicos Vintage</div>
             <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#carros">Carros</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#home" onclick="scrollToSection('home')">Início</a></li>
+                <li><a href="#carros" onclick="scrollToSection('carros')">Carros</a></li>
+                <li><a href="#sobre" onclick="scrollToSection('sobre')">Sobre</a></li>
+                <li><a href="#contato" onclick="scrollToSection('contato')">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Clássicos Atemporais</h1>
-            <p>Descubra a elegância e o charme dos automóveis vintage que marcaram época</p>
-            <a href="#carros" class="cta-button">Explorar Coleção</a>
+            <h1>Clássicos Vintage</h1>
+            <p>Descubra a elegância atemporal dos carros clássicos brasileiros e internacionais. Cada veículo conta uma história única de design, engenharia e paixão.</p>
+            <button class="cta-button" onclick="scrollToSection('carros')">Explorar Coleção</button>
         </div>
     </section>
 
     <section id="carros" class="section">
         <h2>Nossa Coleção</h2>
         <div class="cars-grid">
-            <div class="car-card" onclick="openModal('ford')">
-                <div class="car-icon">🚙</div>
-                <h3>Ford Model T</h3>
-                <p>O primeiro carro produzido em massa, revolucionou o transporte mundial com sua simplicidade e confiabilidade.</p>
-                <span class="car-year">1908-1927</span>
+            <div class="car-card" onclick="showCarDetails('Gol Quadrado')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#4169E1" x="70" y="90" width="260" height="50" rx="5"/>
+                        <rect fill="#1E90FF" x="80" y="100" width="240" height="30" rx="3"/>
+                        <circle fill="#2F2F2F" cx="130" cy="150" r="20"/>
+                        <circle fill="#1A1A1A" cx="130" cy="150" r="12"/>
+                        <circle fill="#2F2F2F" cx="270" cy="150" r="20"/>
+                        <circle fill="#1A1A1A" cx="270" cy="150" r="12"/>
+                        <rect fill="#C0C0C0" x="90" y="85" width="220" height="15" rx="2"/>
+                        <rect fill="#FFD700" x="85" y="105" width="20" height="8" rx="2"/>
+                        <rect fill="#FFD700" x="295" y="105" width="20" height="8" rx="2"/>
+                        <rect fill="#000" x="120" y="88" width="160" height="12" rx="1"/>
+                    </svg>
+                </div>
+                <h3>Volkswagen Gol Quadrado</h3>
+                <p>O ícone nacional dos anos 80. Design angular marcante e a confiabilidade alemã adaptada ao Brasil.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1980</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">1.6</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">72hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="car-card" onclick="openModal('beetle')">
-                <div class="car-icon">🚗</div>
-                <h3>Volkswagen Fusca</h3>
-                <p>Ícone da engenharia alemã, conquistou o mundo com seu design único e durabilidade excepcional.</p>
-                <span class="car-year">1938-2003</span>
+            <div class="car-card" onclick="showCarDetails('Chevette')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#FF4500" d="M80 95 L90 85 L310 85 L320 95 L320 135 L310 145 L90 145 L80 135 Z"/>
+                        <path fill="#FF6347" d="M90 95 L95 90 L305 90 L310 95 L310 125 L305 130 L95 130 L90 125 Z"/>
+                        <circle fill="#2F2F2F" cx="130" cy="150" r="22"/>
+                        <circle fill="#1A1A1A" cx="130" cy="150" r="13"/>
+                        <circle fill="#2F2F2F" cx="270" cy="150" r="22"/>
+                        <circle fill="#1A1A1A" cx="270" cy="150" r="13"/>
+                        <rect fill="#C0C0C0" x="100" y="85" width="200" height="10" rx="2"/>
+                        <rect fill="#FFD700" x="95" y="100" width="18" height="6" rx="1"/>
+                        <rect fill="#FFD700" x="287" y="100" width="18" height="6" rx="1"/>
+                    </svg>
+                </div>
+                <h3>Chevrolet Chevette</h3>
+                <p>O compacto que conquistou o Brasil. Econômico, resistente e com design atemporal dos anos 70.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1973</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">1.4</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">65hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="car-card" onclick="openModal('mustang')">
-                <div class="car-icon">🏎️</div>
-                <h3>Ford Mustang</h3>
-                <p>O muscle car americano que definiu uma era, combinando potência, estilo e acessibilidade.</p>
-                <span class="car-year">1964-presente</span>
+            <div class="car-card" onclick="showCarDetails('Gol G2')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#32CD32" d="M75 95 L85 85 L315 85 L325 95 L325 135 L315 145 L85 145 L75 135 Z"/>
+                        <path fill="#228B22" d="M85 95 L90 90 L310 90 L315 95 L315 125 L310 130 L90 130 L85 125 Z"/>
+                        <circle fill="#2F2F2F" cx="135" cy="150" r="21"/>
+                        <circle fill="#1A1A1A" cx="135" cy="150" r="12"/>
+                        <circle fill="#2F2F2F" cx="265" cy="150" r="21"/>
+                        <circle fill="#1A1A1A" cx="265" cy="150" r="12"/>
+                        <rect fill="#C0C0C0" x="95" y="80" width="210" height="15" rx="5"/>
+                        <rect fill="#FFD700" x="90" y="100" width="20" height="8" rx="2"/>
+                        <rect fill="#FFD700" x="290" y="100" width="20" height="8" rx="2"/>
+                        <rect fill="#000" x="130" y="82" width="140" height="8" rx="2"/>
+                    </svg>
+                </div>
+                <h3>Volkswagen Gol G2</h3>
+                <p>A segunda geração do Gol. Linhas mais suaves e modernas, mantendo a tradição de qualidade VW.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1995</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">1.0</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">50hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="car-card" onclick="openModal('porsche')">
-                <div class="car-icon">🚘</div>
-                <h3>Porsche 911</h3>
-                <p>Lenda dos esportivos, mantém sua essência desde 1963 com performance e elegância inigualáveis.</p>
-                <span class="car-year">1963-presente</span>
+            <div class="car-card" onclick="showCarDetails('Golf GTI')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#8B0000" x="75" y="88" width="250" height="52" rx="8"/>
+                        <rect fill="#DC143C" x="85" y="98" width="230" height="32" rx="5"/>
+                        <circle fill="#2F2F2F" cx="135" cy="150" r="23"/>
+                        <circle fill="#1A1A1A" cx="135" cy="150" r="14"/>
+                        <circle fill="#2F2F2F" cx="265" cy="150" r="23"/>
+                        <circle fill="#1A1A1A" cx="265" cy="150" r="14"/>
+                        <rect fill="#C0C0C0" x="95" y="83" width="210" height="15" rx="3"/>
+                        <rect fill="#FFD700" x="90" y="103" width="22" height="7" rx="2"/>
+                        <rect fill="#FFD700" x="288" y="103" width="22" height="7" rx="2"/>
+                        <rect fill="#000" x="180" y="105" width="40" height="5" rx="1"/>
+                        <text x="200" y="120" text-anchor="middle" fill="#FFD700" font-size="12" font-weight="bold">GTI</text>
+                    </svg>
+                </div>
+                <h3>Volkswagen Golf GTI</h3>
+                <p>O hot hatch que definiu uma categoria. Performance, qualidade alemã e diversão ao dirigir.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1994</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">2.0</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">115hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="car-card" onclick="openModal('mini')">
-                <div class="car-icon">🚐</div>
-                <h3>Mini Cooper</h3>
-                <p>Pequeno por fora, gigante em personalidade. Revolucionou o conceito de carro compacto premium.</p>
-                <span class="car-year">1959-2000</span>
+            <div class="car-card" onclick="showCarDetails('Opala')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#228B22" x="60" y="85" width="280" height="55" rx="10"/>
+                        <rect fill="#32CD32" x="70" y="95" width="260" height="35" rx="5"/>
+                        <circle fill="#2F2F2F" cx="125" cy="150" r="25"/>
+                        <circle fill="#1A1A1A" cx="125" cy="150" r="15"/>
+                        <circle fill="#2F2F2F" cx="275" cy="150" r="25"/>
+                        <circle fill="#1A1A1A" cx="275" cy="150" r="15"/>
+                        <rect fill="#C0C0C0" x="80" y="80" width="240" height="15" rx="3"/>
+                        <rect fill="#FFD700" x="75" y="100" width="25" height="10" rx="2"/>
+                        <rect fill="#FFD700" x="300" y="100" width="25" height="10" rx="2"/>
+                        <rect fill="#000" x="150" y="82" width="100" height="13" rx="2"/>
+                        <circle fill="#C0C0C0" cx="200" cy="120" r="8"/>
+                    </svg>
+                </div>
+                <h3>Chevrolet Opala</h3>
+                <p>O sedan de luxo brasileiro. Elegância, conforto e o inconfundível motor 6 cilindros em linha.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1975</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">4.1 L6</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">140hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="car-card" onclick="openModal('corvette')">
-                <div class="car-icon">🏁</div>
-                <h3>Chevrolet Corvette</h3>
-                <p>O esportivo americano por excelência, símbolo de velocidade e inovação tecnológica.</p>
-                <span class="car-year">1953-presente</span>
+            <div class="car-card" onclick="showCarDetails('Monza')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#800080" d="M70 95 L80 80 L320 80 L330 95 L330 135 L320 150 L80 150 L70 135 Z"/>
+                        <path fill="#9932CC" d="M80 95 L85 85 L315 85 L320 95 L320 125 L315 135 L85 135 L80 125 Z"/>
+                        <circle fill="#2F2F2F" cx="130" cy="155" r="24"/>
+                        <circle fill="#1A1A1A" cx="130" cy="155" r="15"/>
+                        <circle fill="#2F2F2F" cx="270" cy="155" r="24"/>
+                        <circle fill="#1A1A1A" cx="270" cy="155" r="15"/>
+                        <rect fill="#C0C0C0" x="90" y="75" width="220" height="15" rx="5"/>
+                        <rect fill="#FFD700" x="85" y="100" width="25" height="8" rx="2"/>
+                        <rect fill="#FFD700" x="290" y="100" width="25" height="8" rx="2"/>
+                        <rect fill="#000" x="140" y="77" width="120" height="8" rx="2"/>
+                    </svg>
+                </div>
+                <h3>Chevrolet Monza</h3>
+                <p>O sedan esportivo dos anos 80. Design moderno e tecnologia avançada para a época.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1982</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">1.8</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">99hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" onclick="showCarDetails('Omega')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#000080" x="65" y="85" width="270" height="55" rx="12"/>
+                        <rect fill="#4169E1" x="75" y="95" width="250" height="35" rx="8"/>
+                        <circle fill="#2F2F2F" cx="130" cy="150" r="25"/>
+                        <circle fill="#1A1A1A" cx="130" cy="150" r="15"/>
+                        <circle fill="#2F2F2F" cx="270" cy="150" r="25"/>
+                        <circle fill="#1A1A1A" cx="270" cy="150" r="15"/>
+                        <rect fill="#C0C0C0" x="85" y="80" width="230" height="15" rx="5"/>
+                        <rect fill="#FFD700" x="80" y="100" width="28" height="10" rx="3"/>
+                        <rect fill="#FFD700" x="292" y="100" width="28" height="10" rx="3"/>
+                        <rect fill="#000" x="150" y="82" width="100" height="13" rx="3"/>
+                    </svg>
+                </div>
+                <h3>Chevrolet Omega</h3>
+                <p>O sedan executivo premium. Luxo, conforto e tecnologia alemã em um carro brasileiro.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1992</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">2.0</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">115hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" onclick="showCarDetails('Vectra CD')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#C0C0C0" d="M75 95 L85 80 L315 80 L325 95 L325 135 L315 150 L85 150 L75 135 Z"/>
+                        <path fill="#E6E6FA" d="M85 95 L90 85 L310 85 L315 95 L315 125 L310 135 L90 135 L85 125 Z"/>
+                        <circle fill="#2F2F2F" cx="135" cy="155" r="23"/>
+                        <circle fill="#1A1A1A" cx="135" cy="155" r="14"/>
+                        <circle fill="#2F2F2F" cx="265" cy="155" r="23"/>
+                        <circle fill="#1A1A1A" cx="265" cy="155" r="14"/>
+                        <rect fill="#C0C0C0" x="95" y="75" width="210" height="15" rx="5"/>
+                        <rect fill="#FFD700" x="90" y="100" width="25" height="8" rx="2"/>
+                        <rect fill="#FFD700" x="285" y="100" width="25" height="8" rx="2"/>
+                        <rect fill="#000" x="140" y="77" width="120" height="8" rx="2"/>
+                        <text x="200" y="120" text-anchor="middle" fill="#000080" font-size="10" font-weight="bold">CD</text>
+                    </svg>
+                </div>
+                <h3>Chevrolet Vectra CD</h3>
+                <p>O sedan médio de qualidade européia. Conforto, segurança e design moderno dos anos 90.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1993</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">2.0</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">110hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" onclick="showCarDetails('Brasília')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#FFD700" x="70" y="75" width="260" height="65" rx="15"/>
+                        <rect fill="#FFA500" x="80" y="85" width="240" height="45" rx="10"/>
+                        <circle fill="#2F2F2F" cx="130" cy="150" r="22"/>
+                        <circle fill="#1A1A1A" cx="130" cy="150" r="13"/>
+                        <circle fill="#2F2F2F" cx="270" cy="150" r="22"/>
+                        <circle fill="#1A1A1A" cx="270" cy="150" r="13"/>
+                        <rect fill="#C0C0C0" x="90" y="70" width="220" height="15" rx="5"/>
+                        <rect fill="#000" x="100" y="72" width="200" height="11" rx="3"/>
+                        <rect fill="#4169E1" x="85" y="95" width="20" height="8" rx="2"/>
+                        <rect fill="#4169E1" x="295" y="95" width="20" height="8" rx="2"/>
+                    </svg>
+                </div>
+                <h3>Volkswagen Brasília</h3>
+                <p>O utilitário familiar brasileiro. Design único, praticidade e a confiabilidade do motor boxer.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1973</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">1.6</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">65hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" onclick="showCarDetails('Fiat 147')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#800080" x="75" y="90" width="250" height="50" rx="8"/>
+                        <rect fill="#9932CC" x="85" y="100" width="230" height="30" rx="5"/>
+                        <circle fill="#2F2F2F" cx="135" cy="150" r="21"/>
+                        <circle fill="#1A1A1A" cx="135" cy="150" r="12"/>
+                        <circle fill="#2F2F2F" cx="265" cy="150" r="21"/>
+                        <circle fill="#1A1A1A" cx="265" cy="150" r="12"/>
+                        <rect fill="#C0C0C0" x="95" y="85" width="210" height="15" rx="3"/>
+                        <rect fill="#FFD700" x="90" y="105" width="18" height="6" rx="1"/>
+                        <rect fill="#FFD700" x="292" y="105" width="18" height="6" rx="1"/>
+                        <rect fill="#000" x="160" y="87" width="80" height="8" rx="1"/>
+                        <text x="200" y="120" text-anchor="middle" fill="#FFD700" font-size="10" font-weight="bold">147</text>
+                    </svg>
+                </div>
+                <h3>Fiat 147</h3>
+                <p>O primeiro carro nacional a álcool. Revolucionou o mercado brasileiro com tecnologia e economia.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1976</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">1.3</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">65hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" onclick="showCarDetails('Caravan')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#8B4513" x="65" y="80" width="270" height="60" rx="12"/>
+                        <rect fill="#D2691E" x="75" y="90" width="250" height="40" rx="8"/>
+                        <circle fill="#2F2F2F" cx="130" cy="150" r="24"/>
+                        <circle fill="#1A1A1A" cx="130" cy="150" r="15"/>
+                        <circle fill="#2F2F2F" cx="270" cy="150" r="24"/>
+                        <circle fill="#1A1A1A" cx="270" cy="150" r="15"/>
+                        <rect fill="#C0C0C0" x="85" y="75" width="230" height="15" rx="5"/>
+                        <rect fill="#FFD700" x="80" y="95" width="25" height="10" rx="2"/>
+                        <rect fill="#FFD700" x="295" y="95" width="25" height="10" rx="2"/>
+                        <rect fill="#000" x="140" y="77" width="120" height="13" rx="3"/>
+                    </svg>
+                </div>
+                <h3>Chevrolet Caravan</h3>
+                <p>A perua familiar dos anos 70. Espaço, conforto e versatilidade para toda a família.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1975</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">2.5 L6</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">95hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" onclick="showCarDetails('Belina')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#006400" x="70" y="85" width="260" height="55" rx="10"/>
+                        <rect fill="#228B22" x="80" y="95" width="240" height="35" rx="5"/>
+                        <circle fill="#2F2F2F" cx="130" cy="150" r="23"/>
+                        <circle fill="#1A1A1A" cx="130" cy="150" r="14"/>
+                        <circle fill="#2F2F2F" cx="270" cy="150" r="23"/>
+                        <circle fill="#1A1A1A" cx="270" cy="150" r="14"/>
+                        <rect fill="#C0C0C0" x="90" y="80" width="220" height="15" rx="3"/>
+                        <rect fill="#FFD700" x="85" y="100" width="22" height="8" rx="2"/>
+                        <rect fill="#FFD700" x="293" y="100" width="22" height="8" rx="2"/>
+                        <rect fill="#000" x="140" y="82" width="120" height="13" rx="2"/>
+                    </svg>
+                </div>
+                <h3>Ford Belina</h3>
+                <p>A perua robusta da Ford. Ideal para trabalho e família, com a confiabilidade Ford.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1977</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">1.6</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">73hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" onclick="showCarDetails('Corcel 2')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#DC143C" d="M75 95 L85 85 L315 85 L325 95 L325 135 L315 145 L85 145 L75 135 Z"/>
+                        <path fill="#FF6347" d="M85 95 L90 90 L310 90 L315 95 L315 125 L310 130 L90 130 L85 125 Z"/>
+                        <circle fill="#2F2F2F" cx="130" cy="150" r="22"/>
+                        <circle fill="#1A1A1A" cx="130" cy="150" r="13"/>
+                        <circle fill="#2F2F2F" cx="270" cy="150" r="22"/>
+                        <circle fill="#1A1A1A" cx="270" cy="150" r="13"/>
+                        <rect fill="#C0C0C0" x="95" y="80" width="210" height="15" rx="5"/>
+                        <rect fill="#FFD700" x="90" y="100" width="20" height="8" rx="2"/>
+                        <rect fill="#FFD700" x="290" y="100" width="20" height="8" rx="2"/>
+                        <rect fill="#000" x="140" y="82" width="120" height="8" rx="2"/>
+                    </svg>
+                </div>
+                <h3>Ford Corcel 2</h3>
+                <p>O sedan médio da Ford. Design moderno e mecânica confiável dos anos 70.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1978</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">1.4</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">71hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" onclick="showCarDetails('Chevette Tubarão')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#FF1493" d="M80 95 L90 80 L310 80 L320 95 L320 135 L310 150 L90 150 L80 135 Z"/>
+                        <path fill="#FF69B4" d="M90 95 L95 85 L305 85 L310 95 L310 125 L305 135 L95 135 L90 125 Z"/>
+                        <circle fill="#2F2F2F" cx="130" cy="155" r="23"/>
+                        <circle fill="#1A1A1A" cx="130" cy="155" r="14"/>
+                        <circle fill="#2F2F2F" cx="270" cy="155" r="23"/>
+                        <circle fill="#1A1A1A" cx="270" cy="155" r="14"/>
+                        <rect fill="#C0C0C0" x="100" y="75" width="200" height="15" rx="5"/>
+                        <rect fill="#FFD700" x="95" y="100" width="20" height="8" rx="2"/>
+                        <rect fill="#FFD700" x="285" y="100" width="20" height="8" rx="2"/>
+                        <path fill="#000" d="M120 82 L140 75 L260 75 L280 82 L270 87 L130 87 Z"/>
+                    </svg>
+                </div>
+                <h3>Chevette Tubarão</h3>
+                <p>A versão esportiva do Chevette. Design aerodinâmico e performance aprimorada dos anos 80.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1987</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">1.6</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">78hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" onclick="showCarDetails('Saveiro Summer')">
+                <div class="car-icon">
+                    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#FF8C00" x="70" y="90" width="180" height="50" rx="8"/>
+                        <rect fill="#FFA500" x="80" y="100" width="160" height="30" rx="5"/>
+                        <rect fill="#FF8C00" x="250" y="100" width="80" height="40" rx="5"/>
+                        <circle fill="#2F2F2F" cx="130" cy="150" r="21"/>
+                        <circle fill="#1A1A1A" cx="130" cy="150" r="12"/>
+                        <circle fill="#2F2F2F" cx="270" cy="150" r="21"/>
+                        <circle fill="#1A1A1A" cx="270" cy="150" r="12"/>
+                        <rect fill="#C0C0C0" x="90" y="85" width="150" height="15" rx="3"/>
+                        <rect fill="#FFD700" x="85" y="105" width="18" height="6" rx="1"/>
+                        <rect fill="#FFD700" x="295" y="105" width="18" height="6" rx="1"/>
+                        <text x="200" y="120" text-anchor="middle" fill="#FFD700" font-size="10" font-weight="bold">SUMMER</text>
+                    </svg>
+                </div>
+                <h3>Volkswagen Saveiro Summer</h3>
+                <p>A picape jovem e descolada. Estilo surf, praticidade urbana e espírito aventureiro.</p>
+                <div class="car-specs">
+                    <div class="spec">
+                        <div class="spec-value">1995</div>
+                        <div class="spec-label">Ano</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">1.6</div>
+                        <div class="spec-label">Motor</div>
+                    </div>
+                    <div class="spec">
+                        <div class="spec-value">81hp</div>
+                        <div class="spec-label">Potência</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="sobre" class="section">
-        <div class="about">
+        <div class="about-section">
             <h2>Sobre Nós</h2>
-            <p>Somos apaixonados pela história automobilística e dedicamos nossa vida a preservar e celebrar os clássicos que moldaram o mundo dos transportes. Cada veículo em nossa coleção conta uma história única de inovação, design e engenharia.</p>
-        </div>
-
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🔧</div>
-                <h3>Restauração Completa</h3>
-                <p>Cada veículo passa por um processo meticuloso de restauração para manter sua autenticidade original.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">📚</div>
-                <h3>História Documentada</h3>
-                <p>Mantemos registros detalhados da procedência e história de cada automóvel em nossa coleção.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🏆</div>
-                <h3>Qualidade Premium</h3>
-                <p>Nossos padrões de qualidade garantem que cada clássico esteja em condições excepcionais.</p>
+            <p style="font-size: 1.2rem; text-align: center; margin-bottom: 3rem;">
+                Somos apaixonados por carros clássicos brasileiros e internacionais. Dedicamos nossa vida a preservar essas obras de arte sobre rodas, 
+                desde os ícones nacionais até as lendas mundiais. Cada veículo em nossa coleção é cuidadosamente restaurado e mantido em condições impecáveis.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Restauração Completa</h3>
+                    <p>Cada carro passa por um processo meticuloso de restauração, preservando sua autenticidade original.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Qualidade Premium</h3>
+                    <p>Trabalhamos apenas com os melhores profissionais e peças originais para garantir a máxima qualidade.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📚</div>
+                    <h3>História Preservada</h3>
+                    <p>Mantemos registros detalhados da história de cada veículo, preservando seu legado para futuras gerações.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer id="contato" class="footer">
-        <h3>Entre em Contato</h3>
-        <p>📧 contato@classicosvintage.com | 📞 (11) 9999-8888</p>
-        <p>🏢 Rua dos Clássicos, 123 - São Paulo, SP</p>
+    <section id="contato" class="section">
+        <div class="contact-section">
+            <h2>Entre em Contato</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Interessado em nossa coleção? Entre em contato conosco para agendar uma visita ou saber mais sobre nossos serviços.
+            </p>
+            
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+                <div class="form-group">
+                    <label for="interesse">Interesse</label>
+                    <select id="interesse" name="interesse" style="padding: 1rem; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: #f4f1e8; font-family: inherit;">
+                        <option value="">Selecione uma opção</option>
+                        <option value="compra">Compra de Veículo</option>
+                        <option value="restauracao">Serviços de Restauração</option>
+                        <option value="avaliacao">Avaliação de Veículo</option>
+                        <option value="visita">Agendar Visita</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte-nos mais sobre seu interesse..."></textarea>
+                </div>
+                <button type="submit" class="cta-button" style="margin-top: 1rem;">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
         <p>&copy; 2024 Clássicos Vintage. Todos os direitos reservados.</p>
+        <p>Preservando a história automotiva brasileira e mundial com paixão e dedicação.</p>
     </footer>
 
-    <!-- Modal -->
-    <div id="carModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
-            <div id="modalContent"></div>
-        </div>
-    </div>
-
     <script>
-        const carDetails = {
-            ford: {
-                title: "Ford Model T",
-                year: "1908-1927",
-                description: "O Ford Model T, carinhosamente conhecido como 'Tin Lizzie', foi o primeiro automóvel verdadeiramente acessível. Henry Ford revolucionou a indústria com a linha de montagem, tornando possível a produção em massa. Com mais de 15 milhões de unidades produzidas, o Model T colocou a América sobre rodas e mudou para sempre a sociedade moderna.",
-                specs: "Motor: 2.9L 4 cilindros • Potência: 20 hp • Velocidade máxima: 72 km/h • Preço original: $825"
-            },
-            beetle: {
-                title: "Volkswagen Fusca",
-                year: "1938-2003",
-                description: "Originalmente concebido como o 'carro do povo' na Alemanha, o Fusca se tornou um fenômeno mundial. Seu design icônico, motor traseiro refrigerado a ar e construção robusta conquistaram gerações. No Brasil, foi produzido de 1959 a 1986, tornando-se parte da cultura nacional.",
-                specs: "Motor: 1.6L boxer 4 cilindros • Potência: 60 hp • Velocidade máxima: 135 km/h • Produção total: 21.5 milhões"
-            },
-            mustang: {
-                title: "Ford Mustang",
-                year: "1964-presente",
-                description: "Lançado em 1964, o Mustang criou uma nova categoria: o 'pony car'. Combinando estilo esportivo com preço acessível, vendeu mais de 400.000 unidades no primeiro ano. Tornou-se símbolo da cultura americana e inspirou uma geração de muscle cars.",
-                specs: "Motor: V8 289 • Potência: 271 hp • Velocidade máxima: 185 km/h • 0-100 km/h: 7.8s"
-            },
-            porsche: {
-                title: "Porsche 911",
-                year: "1963-presente",
-                description: "O 911 é a evolução do conceito iniciado pelo 356. Seu design atemporal e motor boxer traseiro criam uma experiência de condução única. Ao longo de mais de 50 anos, manteve sua essência enquanto incorporava as mais avançadas tecnologias automotivas.",
-                specs: "Motor: 2.0L boxer 6 cilindros • Potência: 130 hp • Velocidade máxima: 210 km/h • Peso: 1.080 kg"
-            },
-            mini: {
-                title: "Mini Cooper",
-                year: "1959-2000",
-                description: "Criado por Alec Issigonis, o Mini revolucionou o design automotivo com sua configuração transversal do motor e tração dianteira. Apesar do tamanho compacto, oferecia surpreendente espaço interno. Tornou-se ícone dos anos 60 e símbolo da cultura britânica.",
-                specs: "Motor: 1.3L 4 cilindros • Potência: 63 hp • Velocidade máxima: 145 km/h • Peso: 635 kg"
-            },
-            corvette: {
-                title: "Chevrolet Corvette",
-                year: "1953-presente",
-                description: "O primeiro esportivo americano de produção, o Corvette nasceu para competir com os esportivos europeus. Inicialmente com carroceria de fibra de vidro, evoluiu para se tornar um dos carros mais respeitados do mundo, combinando performance americana com sofisticação.",
-                specs: "Motor: V8 327 • Potência: 365 hp • Velocidade máxima: 240 km/h • 0-100 km/h: 5.8s"
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const elementPosition = element.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        function showCarDetails(carName) {
+            const details = {
+                'Gol Quadrado': {
+                    title: 'Volkswagen Gol Quadrado 1980',
+                    description: 'O ícone nacional que marcou uma geração. Com seu design angular característico e a confiabilidade alemã, o Gol Quadrado se tornou um dos carros mais queridos do Brasil.',
+                    specs: 'Motor: 1.6 AP • Potência: 72hp • Transmissão: Manual 4v • Cor: Azul Oceano • Interior: Tecido xadrez'
+                },
+                'Chevette': {
+                    title: 'Chevrolet Chevette 1973',
+                    description: 'O compacto que conquistou o coração dos brasileiros. Econômico, resistente e com um design atemporal, o Chevette foi o carro da família brasileira por décadas.',
+                    specs: 'Motor: 1.4 OHV • Potência: 65hp • Transmissão: Manual 4v • Cor: Laranja Metálico • Interior: Vinil marrom'
+                },
+                'Gol G2': {
+                    title: 'Volkswagen Gol G2 1995',
+                    description: 'A segunda geração do Gol trouxe linhas mais suaves e modernas, mantendo a tradição de qualidade e economia da Volkswagen.',
+                    specs: 'Motor: 1.0 8v • Potência: 50hp • Transmissão: Manual 5v • Cor: Verde Metálico • Interior: Tecido cinza'
+                },
+                'Golf GTI': {
+                    title: 'Volkswagen Golf GTI 1994',
+                    description: 'O hot hatch que definiu uma categoria no Brasil. Com motor 2.0 e acabamento premium, o Golf GTI trouxe a performance alemã para as ruas brasileiras.',
+                    specs: 'Motor: 2.0 8v • Potência: 115hp • Transmissão: Manual 5v • Cor: Vermelho Tornado • Interior: Couro perfurado'
+                },
+                'Opala': {
+                    title: 'Chevrolet Opala 1975',
+                    description: 'O sedan de luxo nacional. Com seu elegante design e o famoso motor 6 cilindros em linha, o Opala representava status e sofisticação no Brasil dos anos 70.',
+                    specs: 'Motor: 4.1 L6 • Potência: 140hp • Transmissão: Manual 4v • Cor: Verde Metálico • Interior: Couro bege'
+                },
+                'Monza': {
+                    title: 'Chevrolet Monza 1982',
+                    description: 'O sedan esportivo que trouxe modernidade aos anos 80. Design arrojado, tecnologia avançada e performance que marcaram época.',
+                    specs: 'Motor: 1.8 OHV • Potência: 99hp • Transmissão: Manual 5v • Cor: Roxo Metálico • Interior: Tecido esportivo'
+                },
+                'Omega': {
+                    title: 'Chevrolet Omega 1992',
+                    description: 'O sedan executivo premium da GM. Baseado no Opel alemão, trouxe luxo, conforto e tecnologia européia para o mercado brasileiro.',
+                    specs: 'Motor: 2.0 MPFI • Potência: 115hp • Transmissão: Manual 5v • Cor: Azul Marinho • Interior: Couro bege'
+                },
+                'Vectra CD': {
+                    title: 'Chevrolet Vectra CD 1993',
+                    description: 'O sedan médio de qualidade européia. Conforto, segurança e design moderno que estabeleceram novos padrões no segmento.',
+                    specs: 'Motor: 2.0 MPFI • Potência: 110hp • Transmissão: Manual 5v • Cor: Prata Metálico • Interior: Tecido premium'
+                },
+                'Brasília': {
+                    title: 'Volkswagen Brasília 1973',
+                    description: 'O utilitário familiar genuinamente brasileiro. Com design único no mundo e a praticidade de uma perua, a Brasília foi criada especialmente para as necessidades das famílias brasileiras.',
+                    specs: 'Motor: 1.6 Boxer • Potência: 65hp • Transmissão: Manual 4v • Cor: Amarelo Dakar • Interior: Vinil azul'
+                },
+                'Fiat 147': {
+                    title: 'Fiat 147 1976',
+                    description: 'O pioneiro do álcool no Brasil. O primeiro carro nacional movido a álcool combustível, o 147 revolucionou a indústria automobilística brasileira e marcou uma era.',
+                    specs: 'Motor: 1.3 Álcool • Potência: 65hp • Transmissão: Manual 4v • Cor: Roxo Metálico • Interior: Tecido listrado'
+                },
+                'Caravan': {
+                    title: 'Chevrolet Caravan 1975',
+                    description: 'A perua familiar robusta e espaçosa. Baseada no Opala, oferecia todo o conforto do sedan com a praticidade de uma perua.',
+                    specs: 'Motor: 2.5 L6 • Potência: 95hp • Transmissão: Manual 4v • Cor: Marrom Metálico • Interior: Vinil bege'
+                },
+                'Belina': {
+                    title: 'Ford Belina 1977',
+                    description: 'A perua robusta da Ford. Ideal para trabalho e família, combinava a confiabilidade Ford com a praticidade de uma perua.',
+                    specs: 'Motor: 1.6 CHT • Potência: 73hp • Transmissão: Manual 4v • Cor: Verde Metálico • Interior: Vinil marrom'
+                },
+                'Corcel 2': {
+                    title: 'Ford Corcel 2 1978',
+                    description: 'O sedan médio da Ford que modernizou a linha. Design mais refinado e mecânica aprimorada em relação ao Corcel original.',
+                    specs: 'Motor: 1.4 CHT • Potência: 71hp • Transmissão: Manual 4v • Cor: Vermelho Metálico • Interior: Tecido xadrez'
+                },
+                'Chevette Tubarão': {
+                    title: 'Chevette Tubarão 1987',
+                    description: 'A versão esportiva do querido Chevette. Com design mais aerodinâmico e motor 1.6, o Tubarão trouxe um toque de esportividade ao compacto da GM.',
+                    specs: 'Motor: 1.6 OHV • Potência: 78hp • Transmissão: Manual 5v • Cor: Rosa Metálico • Interior: Tecido esportivo'
+                },
+                'Saveiro Summer': {
+                    title: 'Volkswagen Saveiro Summer 1995',
+                    description: 'A picape jovem e descolada dos anos 90. Com visual surf e espírito aventureiro, a Summer conquistou uma geração de jovens brasileiros.',
+                    specs: 'Motor: 1.6 AP • Potência: 81hp • Transmissão: Manual 5v • Cor: Laranja Summer • Interior: Tecido colorido'
+                }
+            };
+
+            const car = details[carName];
+            if (car) {
+                alert(`${car.title}\n\n${car.description}\n\n${car.specs}\n\nPara mais informações, entre em contato conosco!`);
             }
-        };
-
-        function openModal(carId) {
-            const car = carDetails[carId];
-            const modal = document.getElementById('carModal');
-            const content = document.getElementById('modalContent');
-            
-            content.innerHTML = `
-                <h2 style="color: #d4af37; margin-bottom: 1rem;">${car.title}</h2>
-                <p style="color: #d4af37; font-weight: bold; margin-bottom: 1rem;">${car.year}</p>
-                <p style="margin-bottom: 2rem; line-height: 1.8;">${car.description}</p>
-                <div style="background: rgba(212, 175, 55, 0.1); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #d4af37;">
-                    <h4 style="color: #d4af37; margin-bottom: 1rem;">Especificações:</h4>
-                    <p style="margin: 0;">${car.specs}</p>
-                </div>
-            `;
-            
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            const modal = document.getElementById('carModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const nome = formData.get('nome');
+            const email = formData.get('email');
+            const interesse = formData.get('interesse');
+            
+            // Simulate form submission
+            alert(`Obrigado, ${nome}! Sua mensagem foi recebida com sucesso.\n\nEntraremos em contato através do e-mail ${email} em breve.\n\nTipo de interesse: ${interesse || 'Não especificado'}`);
+            
+            // Reset form
+            event.target.reset();
         }
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Smooth scrolling for navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll effect to header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(0, 0, 0, 0.95)';
+                } else {
+                    header.style.background = 'rgba(0, 0, 0, 0.8)';
                 }
             });
-        });
 
-        // Close modal when clicking outside
-        document.getElementById('carModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
+            // Add animation to car cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Initially hide cards for animation
+            document.querySelectorAll('.car-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9883dddd7318c20f',t:'MTc1OTQwNDYxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98840267d071c20f',t:'MTc1OTQwNjExMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
- 
